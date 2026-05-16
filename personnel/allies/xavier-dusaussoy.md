@@ -8,7 +8,7 @@
 | **Niveau** | VETERAN |
 | **Missions** | 49 |
 | **Victoires air** | 4 |
-| **Statut** | Actif |
+| **Statut** | Blessé grave — indisponible |
 
 ## Profil
 
@@ -26,6 +26,6 @@ Rallié en 42 depuis l'Afrique du Nord. A volé en Normandie avec le 326, puis s
 
 ## État courant
 
-- **Moral :** Neutre
-- **Fatigue :** Frais (n'a pas volé aujourd'hui)
-- **Dernière mission :** Pas en vol le 1er novembre
+- **Statut :** Blessé grave — indisponible pour une durée indéterminée (notification officielle PWCG, 2 novembre 1944)
+- **Circonstances :** Touché par un Fw 190 A-8 au-dessus du Brabant (~15% dégâts initiaux), puis détruit par flak au ras du sol. Crash-landing confirmé, ~50 km à l'ouest de Volkel.
+- **Note :** Falstaff a abattu l'Fw 190 qui l'attaquait. Dusaussoy n'avait pas rompu sur l'appel radio — ce qui a conduit à la mise hors de combat.

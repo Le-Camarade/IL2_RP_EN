@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "squadron/tableau-de-bord.md",
+                "file": "missions/briefings/1944-11-02_briefing-02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tableau-de-bord"
+              "title": "1944-11-02_briefing-02"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "squadron/tableau-de-bord.md",
+                "file": "missions/1944-11-01_mission-01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Rétrolien pour tableau-de-bord"
+              "title": "Rétrolien pour 1944-11-01_mission-01"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "squadron/tableau-de-bord.md",
+                "file": "missions/1944-11-01_mission-01.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Liens sortants de tableau-de-bord"
+              "title": "Liens sortants de 1944-11-01_mission-01"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "squadron/tableau-de-bord.md",
+                "file": "missions/1944-11-01_mission-01.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Plan de tableau-de-bord"
+              "title": "Plan de 1944-11-01_mission-01"
             }
           }
         ]
@@ -183,16 +183,31 @@
       "bases:Créer une nouvelle base": false
     }
   },
-  "active": "d3e2d1bf275ea10d",
+  "active": "c9b30697d2c6893c",
   "lastOpenFiles": [
-    "CLAUDE.md.tmp.22536.8881f3c2801b",
-    "squadron/journal.md.tmp.2820.02b097973bec",
-    "scripts/post_mission.py",
-    "squadron/memorial.md",
-    "squadron/journal.md",
-    "personnel/nicolas-falstaff.md",
+    "missions/combat_reports/1944-11-02_mission-02.md",
+    "personnel/allies/felix-vitry.md",
+    "squadron/journal.md.tmp.9644.f8fa454e70d3",
+    "squadron/journal.md.tmp.9644.c1b1674134e9",
+    "squadron/tableau-de-bord.md.tmp.9644.0d477c3dec0b",
+    "squadron/tableau-de-bord.md.tmp.9644.3a056371fe86",
+    "squadron/tableau-de-bord.md.tmp.9644.47fd9d0d53ee",
+    "squadron/tableau-de-bord.md.tmp.9644.082d52f424be",
+    "squadron/tableau-de-bord.md.tmp.9644.66925991e45f",
+    "personnel/allies/antonin-chevalier.md",
+    "personnel/allies/xavier-dusaussoy.md.tmp.9644.7aae46f51915",
+    "personnel/allies/xavier-dusaussoy.md.tmp.9644.f33bb69af7ba",
+    "personnel/nicolas-falstaff.md.tmp.9644.c3b2782952a2",
+    "missions/1944-11-02_mission-02.md",
+    "missions/briefings/1944-11-01_briefing-01.md",
     "personnel/allies/xavier-dusaussoy.md",
     "personnel/allies/marcel-morliere.md",
-    "missions/1944-11-01_mission-01.md"
+    "resources/combat-report-template.md",
+    "personnel/nicolas-falstaff.md",
+    "missions/1944-11-01_mission-01.md",
+    "resources/prompt-orchestration.md",
+    "squadron/journal.md",
+    "squadron/memorial.md",
+    "squadron/tableau-de-bord.md"
   ]
 }

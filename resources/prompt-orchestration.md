@@ -21,14 +21,22 @@ JOUEUR: "briefing"
     │
     ▼
 CLAUDE (silencieux):
-    1. python scripts/parse_pwcg.py
-    2. Chercher le dernier fichier .Mission dans PWCG_CAMPAIGN_DIR
+    1. python scripts/post_mission.py fix-lang  (génère .fra/.ger/etc.)
+    2. Lire Campaign.json → extraire date (YYYYMMDD)
+    3. Lire MissionData/Nicky Falstaff II YYYY-MM-DD.MissionData.json
+       → Si absent : briefing contextuel + note "générer dans PWCG"
     3. Lire squadron/tableau-de-bord.md
     4. Lire les 3 dernières entrées de squadron/journal.md
+    5. Convertir toutes les unités SI → impérial (feet, mph)
+    │
+    ▼
+CLAUDE (hors personnage):
+    Sauvegarder missions/briefings/YYYY-MM-DD_briefing-NN.md
     │
     ▼
 CLAUDE (en personnage IO):
     Affiche le briefing structuré (voir prompt-io-briefing.md)
+    Règle : pas de noms ni effectifs ennemis — unités + types uniquement
     │
     ▼
 JOUEUR: questions éventuelles
@@ -110,9 +118,11 @@ Les `missionReport*.txt` s'accumulent dans `IL2_DATA_DIR`. Pour trouver les bons
 ## Numérotation des missions
 
 Le numéro `NN` dans `missions/YYYY-MM-DD_mission-NN.md` est séquentiel :
-- Compter les fichiers existants dans `missions/`
+- Compter les fichiers existants dans `missions/` (hors dossier `briefings/`)
 - Incrémenter de 1
 - Format : deux chiffres, zéro-padded (`01`, `02`, ... `99`)
+
+Le briefing associé utilise le **même numéro** : `missions/briefings/YYYY-MM-DD_briefing-NN.md`
 
 ---
 
@@ -181,5 +191,6 @@ Chaque workflow est autonome — il lit l'état courant des fichiers, pas un ét
 | `.env` vide ou chemins invalides | "Les chemins dans .env ne sont pas configurés. Vérifie IL2_DATA_DIR et PWCG_CAMPAIGN_DIR." |
 | Pas de missionReport récent | "Pas de logs de mission trouvés. Tu as bien mission_text_log = 1 dans startup.cfg ?" |
 | PWCG Campaign.json absent | "Je ne trouve pas de campagne PWCG au chemin configuré. Vérifie PWCG_CAMPAIGN_DIR dans .env." |
+| MissionData absent | Briefing contextuel (historique + escadron) + "Génère la mission dans PWCG pour les objectifs précis." |
 | Personnel vide | "Pas de données pilotes. La campagne PWCG est bien initialisée ?" |
 | Logs d'une ancienne mission | "Les derniers logs datent de [date]. C'est bien cette mission ?" |

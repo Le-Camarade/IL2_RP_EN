@@ -41,7 +41,7 @@ Chemin typique : `<IL-2 install>/PWCGBoS/User/Campaigns/<CampaignName>/`
 | `Campaign.json` | Date campagne, carte, mode | Contexte temporel et géographique |
 | `Personnel/<SquadronID>.json` | Pilotes : nom, rang, skill, victoires, statut | Fiches pilotes, dispersal |
 | `CombatReports/<PilotSerial>/YYYYMMDD.CombatReport.json` | Rapport post-mission PWCG | Croisement avec debrief |
-| `MissionData/` | Paramètres de la mission générée | Briefing |
+| `MissionData/Nicky Falstaff II YYYY-MM-DD.MissionData.json` | Paramètres de la mission générée (duty, météo, appareils, escorte) | Briefing |
 | `Equipment/` | Appareils disponibles par escadron | Contexte matériel |
 
 ### 2. Fichier .Mission (texte structuré)
@@ -84,7 +84,9 @@ IL2-Career-RP/
 ├── ROADMAP.md                       ← phases du projet
 │
 ├── missions/
-│   └── YYYY-MM-DD_mission-NN.md     ← un combat report par sortie
+│   ├── YYYY-MM-DD_mission-NN.md     ← un combat report par sortie
+│   └── briefings/
+│       └── YYYY-MM-DD_briefing-NN.md ← un briefing par sortie
 │
 ├── personnel/
 │   ├── [pilote-joueur].md           ← fiche pilote joueur (généré depuis PWCG)
@@ -124,13 +126,20 @@ Logique de séquencement, gestion d'erreurs, sélection des logs : `resources/pr
 
 ### Briefing — résumé
 
-1. Lancer `python scripts/post_mission.py fix-lang` (silencieux) — synchronise les fichiers de langue des missions PWCG
-2. Lancer `python scripts/parse_pwcg.py` (silencieux)
-3. Chercher le dernier `.Mission` dans `PWCG_CAMPAIGN_DIR`
-4. Lire `squadron/tableau-de-bord.md` + dernières entrées `squadron/journal.md`
+1. Lancer `python scripts/post_mission.py fix-lang` (silencieux) — génère les fichiers de langue `.fra`, `.ger`, etc. pour la mission PWCG
+2. Lire `Campaign.json` pour obtenir la date campagne (`YYYYMMDD`)
+3. Lire `MissionData/Nicky Falstaff II YYYY-MM-DD.MissionData.json` (date campagne courante)
+   - Si absent : briefing contextuel uniquement + note au joueur de générer la mission dans PWCG
+3. Lire `squadron/tableau-de-bord.md` + dernières entrées `squadron/journal.md`
+4. Sauvegarder le briefing dans `missions/briefings/YYYY-MM-DD_briefing-NN.md`
 5. Afficher le briefing **en personnage IO** (structure dans `prompt-io-briefing.md`)
 6. Répondre aux questions du joueur en personnage
 7. Quand le pilote part voler : "Compris. On se retrouve au debrief."
+
+**Règles IO briefing :**
+- Toutes les unités en **feet et mph** (jamais mètres ou m/s) — convertir les données PWCG
+- Ne jamais citer les noms des pilotes ennemis ni leur effectif précis avant le combat
+- L'opposition attendue = unités et types d'appareils probables (contexte historique), pas les données MissionData ennemies
 
 ### Debriefing — résumé
 

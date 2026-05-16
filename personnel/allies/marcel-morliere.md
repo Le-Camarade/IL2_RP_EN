@@ -22,7 +22,7 @@ Bretagne d'origine. A rejoint les FFL via l'Espagne en 43. A un peu de tout derr
 
 ## Relation avec Falstaff
 
-**Amical / neutre.** Bonne disposition naturelle. Attend de voir comment le nouveau S/L se comporte sous pression. La sortie d'aujourd'hui l'a intéressé.
+**Amical / positif.** Falstaff a répondu à toutes ses questions sans le savoir : ferme avec Vitry, attentif aux hommes tombés, capable de pivoter vers la vie quand le moment le demandait. "Bienvenue au 326, patron. Le vrai cette fois." — dit en levant son verre, tard dans la nuit du 2 novembre. C'était sincère.
 
 ## État courant
 

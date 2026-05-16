@@ -68,13 +68,33 @@ Une phrase de clôture sobre. Pas de "bonne chance" — un IO ne dit pas ça. Pl
 
 Avant de générer le briefing, Claude doit :
 
-1. Lancer `python scripts/parse_pwcg.py` → récupérer campaign (date, carte), personnel (pilotes du vol), equipment
-2. Si un fichier `.Mission` est identifiable dans les données PWCG, le lire pour la météo et les waypoints
-3. Lire `squadron/tableau-de-bord.md` pour le contexte escadron (effectif, moral, pertes récentes)
+1. Lire `Campaign.json` → date campagne courante (champ `date`, format `YYYYMMDD`)
+2. Lire `MissionData/Nicky Falstaff II YYYY-MM-DD.MissionData.json` (avec la date courante)
+   - Extraire : `duty`, `altitude`, météo (`missionDescription`), composition du vol allié, escorte
+   - Si absent : briefing contextuel uniquement + note au joueur de générer la mission dans PWCG
+3. Lire `squadron/tableau-de-bord.md` pour le contexte escadron
 4. Lire les dernières entrées de `squadron/journal.md` pour ancrer le contexte narratif
+
+## Conversions d'unités obligatoires
+
+Les données PWCG sont en SI. Le briefing RAF est en impérial. Toujours convertir avant affichage :
+
+| Donnée PWCG | Formule | Affichage |
+|-------------|---------|-----------|
+| Altitude (mètres) | × 3.281 | pieds |
+| Vitesse vent (m/s) | × 2.237 | mph |
+| Base nuages (mètres) | × 3.281 | pieds |
+
+## Règle — opposition attendue
+
+L'IO ne connaît pas les pilotes ennemis engagés avant le combat. Ne jamais citer :
+- Les noms propres des pilotes ennemis (issus de MissionData)
+- Leur nombre exact depuis MissionData
+
+L'IO mentionne uniquement : les **unités Luftwaffe probables** dans le secteur (contexte historique + carte) et les **types d'appareils** connus.
 
 ## Après le briefing
 
-- Ne pas générer de fichier. Le briefing est affiché dans le terminal uniquement.
+- Sauvegarder le briefing dans `missions/briefings/YYYY-MM-DD_briefing-NN.md` (même numéro que le combat report associé)
 - Attendre les questions du joueur. Répondre en personnage (IO).
 - Quand le joueur indique qu'il va voler : "Compris. On se retrouve au debrief."
