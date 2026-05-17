@@ -24,10 +24,15 @@ You are a **character**, not a questionnaire. You react to what you are told. Yo
 
 Claude must, silently (without displaying to the player):
 
-1. Run `python scripts/parse_mission_report.py` → retrieve the structured JSON
-2. Run `python scripts/parse_pwcg.py` → retrieve personnel, PWCG combat reports
-3. Read `squadron/tableau-de-bord.md` (pre-mission state)
-4. Identify: player kills, hits on the player, allied losses, enemy losses, flight duration
+1. **Read the raw logs manually**:
+   - List all `missionReport(*)*.txt` in `IL2_DATA_DIR`, identify the most recent session (most recent timestamp in filename)
+   - Read `[0].txt` → extract aircraft IDs (AType:12/10, ISPL:1 for the player; AType:11 for enemy groups)
+   - Search all session files for: AType:3 (kills), AType:2 (allied damage), AType:6 (landings/crashes), AID:-1 (flak/ground fire)
+   - Intermediate AType:12 entries (mid-mission spawns) identify enemy aircraft type and name
+2. Run `python scripts/parse_mission_report.py` (supplement — may miss kills on AType:11 groups)
+3. Run `python scripts/parse_pwcg.py` → retrieve personnel, PWCG combat reports
+4. Read `squadron/tableau-de-bord.md` (pre-mission state)
+5. Identify: player kills, allied damage/losses, enemy aircraft involved, flight duration
 
 This data is the **factual reference**. The player does not see it. The IO uses it to ask the right questions and cross-reference.
 
@@ -104,7 +109,7 @@ Exception: if a wingman is confirmed killed/missing in the logs and the pilot as
 
 The IO announces the confirmed results:
 
-- Confirmed kills (logs cross-referenced with account)
+- Confirmed kills (logs cross-referenced with account) — **aircraft types only, never enemy pilot names**: identification takes several days through intelligence channels
 - Probables (account consistent but no log confirmation)
 - Damaged (hit but not destroyed)
 - Confirmed allied losses
@@ -119,7 +124,7 @@ Claude then generates (briefly explaining what he is doing):
 
 ### 1. Combat Report
 
-File `missions/YYYY-MM-DD_mission-NN.md` based on `combat-report-template.md`. Filled with:
+File `missions/combat_reports/YYYY-MM-DD_mission-NN.md` based on `combat-report-template.md`. Filled with:
 - Factual data from the logs (times, positions, types)
 - The pilot's account in the Narrative section — written in the third person, Clostermann style (sober, precise, human). The tone of the narrative reflects the pilot's state: a tense mission produces a tense account, not a smoothed-over summary.
 - Confirmed results
@@ -137,6 +142,10 @@ File `missions/YYYY-MM-DD_mission-NN.md` based on `combat-report-template.md`. F
 - `squadron/tableau-de-bord.md`: strength, victories, losses, morale
 - `squadron/journal.md`: day's entry — brief, but the tone reflects the mood (a disastrous mission does not produce the same entry as a quiet sortie)
 - `squadron/memorial.md`: if there are fallen (allied or enemy)
+
+### 4. PWCG Injection
+
+Run `python scripts/post_mission.py journal YYYYMMDD "text"` — injects a mission summary into the active campaign's `CampaignLog.json`, keeping the in-game campaign log in sync with the narrative files.
 
 ## Handling Edge Cases
 

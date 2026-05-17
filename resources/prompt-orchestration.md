@@ -61,13 +61,18 @@ PLAYER: "debrief"
     │
     ▼
 CLAUDE (silent):
-    1. python scripts/parse_mission_report.py
+    1. Read raw logs manually:
+       → List missionReport(*)*.txt, identify the most recent session by timestamp
+       → Read [0].txt: aircraft IDs (AType:12/10), enemy groups (AType:11)
+       → Search all files: AType:3 kills, AType:2 allied damage,
+         AType:6 landings, AID:-1 flak
+       → Intermediate AType:12: identify enemy aircraft types/names
        → If no missionReport found: "No mission logs found.
          Have you enabled mission_text_log in startup.cfg?"
-       → Identify the most recent logs (by timestamp in filename)
-    2. python scripts/parse_pwcg.py
-    3. Read squadron/tableau-de-bord.md
-    4. Store summary in working memory (not displayed)
+    2. python scripts/parse_mission_report.py (supplement — may miss kills on AType:11)
+    3. python scripts/parse_pwcg.py
+    4. Read squadron/tableau-de-bord.md
+    5. Store summary in working memory (not displayed)
     │
     ▼
 CLAUDE (in character as IO):
@@ -91,11 +96,13 @@ CLAUDE (IO):
     ▼
 CLAUDE (out of character):
     Generates files:
-    1. missions/YYYY-MM-DD_mission-NN.md  (combat report)
+    1. missions/combat_reports/YYYY-MM-DD_mission-NN.md  (combat report)
     2. Update personnel/             (pilot files)
     3. Update squadron/journal.md    (short entry)
     4. Update squadron/tableau-de-bord.md
     5. Update squadron/memorial.md   (if casualties)
+    6. python scripts/post_mission.py journal YYYYMMDD "text"
+       → inject into PWCG CampaignLog.json
     │
     ▼
 CLAUDE: "Report filed. Shall we head to the dispersal?"
@@ -117,8 +124,8 @@ CLAUDE: "Report filed. Shall we head to the dispersal?"
 
 ## Mission Numbering
 
-The `NN` in `missions/YYYY-MM-DD_mission-NN.md` is sequential:
-- Count existing files in `missions/` (excluding the `briefings/` subfolder)
+The `NN` in `missions/combat_reports/YYYY-MM-DD_mission-NN.md` is sequential:
+- Count existing files in `missions/combat_reports/`
 - Increment by 1
 - Format: two digits, zero-padded (`01`, `02`, ... `99`)
 
@@ -136,7 +143,7 @@ CLAUDE (silent):
     1. Read squadron/tableau-de-bord.md
     2. Read last 3–5 entries of squadron/journal.md
     3. Read personnel/allies/*.md (living pilot files)
-    4. Read the latest missions/*.md
+    4. Read the latest missions/combat_reports/*.md
     5. Select 2–4 pilots present (consistent with context)
     │
     ▼
