@@ -70,9 +70,12 @@ Critical ATypes:
 | 3 | Kill | AID (attacker), TID (victim) |
 | 5 | TakeOff | ID |
 | 6 | Landing | ID |
+| 11 | Group | GID (group), IDS (members) |
 | 12 | ObjectSpawned | ID, TYPE, COUNTRY, NAME, POS |
 
 **COUNTRY:102** = Allies | **COUNTRY:201** = Axis
+
+> **Parsing note:** AType:11 entries define enemy aircraft groups. An enemy aircraft and its bot pilot share the same group, their IDs differing by 1024. To identify aircraft types, look for intermediate AType:12 entries (mid-mission spawns). Python scripts may miss kills if AType:11 groups are not correctly resolved — **always read the raw logs manually** before relying on script output.
 
 ---
 
@@ -84,7 +87,8 @@ IL2-Career-RP/
 ├── ROADMAP.md                       ← project phases
 │
 ├── missions/
-│   ├── YYYY-MM-DD_mission-NN.md     ← one combat report per sortie
+│   ├── combat_reports/
+│   │   └── YYYY-MM-DD_mission-NN.md ← one combat report per sortie
 │   └── briefings/
 │       └── YYYY-MM-DD_briefing-NN.md ← one briefing per sortie
 │
@@ -140,12 +144,18 @@ Sequencing logic, error handling, log selection: `resources/prompt-orchestration
 - All units in **feet and mph** (never metres or m/s) — convert PWCG data
 - Never name enemy pilots or give their precise strength before combat
 - Expected opposition = probable units and aircraft types (historical context), not enemy MissionData
+- **During debrief too**: the IO does not know the names of enemy pilots killed during the interrogation or when announcing confirmed kills — identification takes several days (separate intelligence channels)
 
 ### Debriefing — summary
 
-1. Run `python scripts/parse_mission_report.py` on the most recent logs (silent)
-2. Run `python scripts/parse_pwcg.py` (silent)
-3. Store the data — **do not show it to the player**
+1. **Read the raw logs manually** (silent):
+   - List all `missionReport(*)*.txt` in `IL2_DATA_DIR`, identify the most recent session by timestamp
+   - Read `[0].txt` → extract aircraft IDs (AType:12/10, ISPL:1 for the player)
+   - Search all files for: AType:3 (kills), AType:2 (allied damage), AType:6 (landings/crashes), AID:-1 (flak)
+   - Intermediate AType:12 entries identify enemy aircraft (type + name)
+2. Run `python scripts/parse_mission_report.py` (supplement — may miss kills on AType:11 groups)
+3. Run `python scripts/parse_pwcg.py` (silent)
+4. Store the data — **do not show it to the player**
 4. Interrogation **in character as IO**, one question at a time (6 phases in `prompt-io-debrief.md`)
 5. Cross-reference the player's account with the logs. Normal fog of war.
 6. Announce confirmed results

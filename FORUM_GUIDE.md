@@ -114,14 +114,18 @@ PWCG generates rich data files when it creates a campaign and each mission. This
 
 **3. IL-2 Mission Report logs** — When you have `mission_text_log = 1` enabled in IL-2's `startup.cfg`, the game generates text log files after every flight. These logs record every event in the mission with timestamps: when aircraft spawned, who hit who, who was damaged, who was killed, who took off, who landed. This is the ground truth that the AI uses to verify your debrief account.
 
-### Step 2 — The Scripts
+### Step 2 — The Scripts and the Raw Logs
 
 Two small Python scripts parse this raw data and convert it into structured JSON that the AI can easily process:
 
 - `parse_mission_report.py` — reads the IL-2 logs and reconstructs the mission timeline
 - `parse_pwcg.py` — reads the PWCG JSON files and extracts the relevant data
 
-These scripts run silently in the background at the start of each workflow.
+These scripts run silently at the start of the debrief workflow. However, **the scripts are a supplement, not the primary source**. In practice, before running them, the AI reads a selection of the raw `missionReport[N].txt` files directly — specifically to extract aircraft IDs, identify kills, and track allied casualties. This is because the scripts can miss combat events when enemy aircraft are defined as groups (AType:11 entries), which is common in PWCG-generated missions. The raw logs are always authoritative; the scripts provide a useful starting summary.
+
+A `post_mission.py` utility handles two additional tasks:
+- `fix-lang` — copies the mission's `.eng` description file to all other language variants (`.fra`, `.ger`, `.rus`, etc.) that PWCG expects. Run at the start of every briefing.
+- `journal YYYYMMDD "text"` — injects a journal entry into PWCG's `CampaignLog.json`, keeping the in-game campaign log in sync with the narrative files.
 
 ### Step 3 — The AI and the Prompts
 
@@ -233,7 +237,7 @@ All files are plain Markdown — readable in any text editor, no special softwar
 2. Launch Claude Code: `claude`
 3. Type: `briefing`
 
-Claude reads the PWCG mission data, reads the squadron context, and delivers the briefing in character as the IO. You can ask questions — the IO answers in character. When you're ready: "Going to fly." The IO closes: *"Understood. See you at the debrief."*
+Claude silently runs `post_mission.py fix-lang` first (generates the PWCG language files for the mission), then reads the PWCG mission data and squadron context, and delivers the briefing in character as the IO. You can ask questions — the IO answers in character. When you're ready: "Going to fly." The IO closes: *"Understood. See you at the debrief."*
 
 ### After landing
 
@@ -247,7 +251,7 @@ Claude runs the log parsers silently, then the IO starts questioning you — one
 
 As you talk, Claude is cross-referencing your account against the actual logs. Small discrepancies are fog of war. Large ones get flagged. At the end, confirmed kills are announced, losses recorded.
 
-The combat report is filed automatically. Pilot sheets are updated. The journal gets an entry.
+The combat report is filed automatically. Pilot sheets are updated. The journal gets an entry. Finally, `post_mission.py journal` injects a summary into PWCG's own `CampaignLog.json`, so the in-game campaign log stays in sync.
 
 ### Between missions
 
@@ -271,7 +275,7 @@ Claude selects 2-4 pilots who would plausibly be in the dispersal hut given the 
 
 ### Not Yet Validated / Needs Work
 
-- The Python parsers have been written but not yet validated against a wide range of real PWCG/IL-2 data — edge cases likely exist
+- The Python parsers have a known limitation: `parse_mission_report.py` can return zero kills even when several were scored, when enemy aircraft are defined as groups (AType:11). The workaround is reading the raw logs directly — which the AI does by default — but someone adapting this project should be aware that the script output is not always reliable as a standalone source
 - Enemy pilot dossiers (for killed opponents) are planned but not implemented
 - The dispersal pilot rotation system (arrivals, transfers, departures from PWCG) needs refinement
 - There is no error recovery if the AI produces malformed output — you would need to manually correct files
