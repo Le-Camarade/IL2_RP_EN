@@ -1,7 +1,7 @@
-# Mémorial
+# Memorial
 
-*Tous les tombés — alliés et ennemis. Pas de distinction de camp.*
+*All the fallen — Allied and Axis alike. No distinction of side.*
 
 ---
 
-*Aucune entrée.*
+*No entries.*

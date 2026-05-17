@@ -1,88 +1,88 @@
 # ROADMAP — IL-2 Career Narrator (PWCG)
 
-## Phase 1 — Parsers et fondations
+## Phase 1 — Parsers and foundations
 
-### 1.1 Parser missionReport (logs AType)
-- [x] Script `parse_mission_report.py` : lit tous les `missionReport*.txt` d'une session
-- [x] Reconstruit la timeline : spawns (AType:12), hits (1), dégâts (2), kills (3), décollages (5), atterrissages (6)
-- [x] Résout les ID : associe chaque ID à un TYPE + COUNTRY + NAME
-- [x] Identifie le pilote joueur (PID != -1) et son appareil
-- [x] Produit un JSON structuré sur stdout
-- [ ] **À valider sur de vrais logs** — en attente première mission PWCG
+### 1.1 missionReport parser (AType logs)
+- [x] Script `parse_mission_report.py`: reads all `missionReport*.txt` from a session
+- [x] Reconstructs the timeline: spawns (AType:12), hits (1), damage (2), kills (3), takeoffs (5), landings (6)
+- [x] Resolves IDs: associates each ID with a TYPE + COUNTRY + NAME
+- [x] Identifies the player pilot (PID != -1) and their aircraft
+- [x] Produces structured JSON on stdout
+- [ ] **To validate on real logs** — awaiting first PWCG mission
 
-### 1.2 Lecteur PWCG
-- [x] Script `parse_pwcg.py` : lit les JSON PWCG pertinents
-- [x] Extrait : liste des pilotes escadron (nom, rang, skill, victoires, statut)
-- [x] Extrait : combat reports PWCG (pour croisement)
-- [x] Extrait : équipement par escadron
-- [ ] **À valider sur de vrais JSON PWCG** — en attente première campagne
+### 1.2 PWCG reader
+- [x] Script `parse_pwcg.py`: reads the relevant PWCG JSON files
+- [x] Extracts: squadron pilot list (name, rank, skill, victories, status)
+- [x] Extracts: PWCG combat reports (for cross-reference)
+- [x] Extracts: equipment per squadron
+- [ ] **To validate on real PWCG JSON** — awaiting first campaign
 
-### 1.3 Configuration et structure
-- [x] `.env` avec chemins `IL2_DATA_DIR` et `PWCG_CAMPAIGN_DIR`
-- [x] `config.py` — chargement .env partagé par tous les scripts
-- [x] Template `combat-report-template.md` (formulaire RAF Form 540/F)
-- [x] `squadron/tableau-de-bord.md` — structure prête
-- [x] `squadron/journal.md` — prêt
-- [x] `squadron/memorial.md` — prêt
-- [ ] Initialisation automatique des fiches pilotes depuis PWCG
+### 1.3 Configuration and structure
+- [x] `.env` with paths `IL2_DATA_DIR` and `PWCG_CAMPAIGN_DIR`
+- [x] `config.py` — shared .env loading for all scripts
+- [x] Template `combat-report-template.md` (RAF Form 540/F)
+- [x] `squadron/tableau-de-bord.md` — structure ready
+- [x] `squadron/journal.md` — ready
+- [x] `squadron/memorial.md` — ready
+- [ ] Automatic pilot sheet initialisation from PWCG
 
 ---
 
 ## Phase 2 — Brief / Debrief
 
 ### 2.1 Briefing
-- [x] Prompt système IO briefing (`resources/prompt-io-briefing.md`)
-- [x] Structure : situation, mission, composition vol, opposition, météo, consignes
-- [x] Flux d'orchestration documenté (`resources/prompt-orchestration.md`)
-- [ ] **À valider sur une vraie mission PWCG**
+- [x] IO briefing system prompt (`resources/prompt-io-briefing.md`)
+- [x] Structure: situation, mission, flight composition, opposition, weather, instructions
+- [x] Orchestration flow documented (`resources/prompt-orchestration.md`)
+- [ ] **To validate on a real PWCG mission**
 
-### 2.2 Debriefing interactif
-- [x] Prompt système IO debrief (`resources/prompt-io-debrief.md`)
-- [x] Séquence de questions structurée (6 phases)
-- [x] Logique de croisement récit joueur vs données logs
-- [x] Gestion cas limites (logs absents, mission sans contact, crash)
-- [ ] Génération du Combat Report (`missions/YYYY-MM-DD_mission-NN.md`) — **à tester**
-- [ ] Mise à jour des fiches pilotes — **à tester**
-- [ ] Mise à jour tableau de bord + journal — **à tester**
+### 2.2 Interactive debriefing
+- [x] IO debrief system prompt (`resources/prompt-io-debrief.md`)
+- [x] Structured question sequence (6 phases)
+- [x] Cross-reference logic: player account vs log data
+- [x] Edge case handling (missing logs, mission without contact, crash)
+- [ ] Combat Report generation (`missions/YYYY-MM-DD_mission-NN.md`) — **to test**
+- [ ] Pilot sheet updates — **to test**
+- [ ] Dashboard + journal updates — **to test**
 
 ---
 
 ## Phase 3 — Dispersal
 
-### 3.1 Profils pilotes
-- [x] Système de profils défini : traits (tempérament, combat, société), relation, backstory, état courant
-- [x] Logique de génération depuis données PWCG (rang → ancien/nouveau, skill → as/vert, nom → nationalité)
-- [x] Stockés dans `personnel/allies/[nom].md`
-- [ ] **À tester** : génération initiale sur vrais pilotes PWCG
+### 3.1 Pilot profiles
+- [x] Profile system defined: traits (temperament, combat, social), relationship, backstory, current state
+- [x] Generation logic from PWCG data (rank → veteran/new, skill → ace/green, name → nationality)
+- [x] Stored in `personnel/allies/[nom].md`
+- [ ] **To test**: initial generation on real PWCG pilots
 
 ### 3.2 Interactions
-- [x] Prompt dispersal complet (`resources/prompt-dispersal.md`)
-- [x] Pilotes se parlent entre eux, joueur s'insère quand il veut
-- [x] Sujets naturels définis (mission en biais, permissions, bouffe, mort banalisée)
-- [x] Anti-patterns listés (pas de monologues héroïques, pas de narration 2e personne)
-- [x] Logging dans `squadron/journal.md`
-- [ ] **À tester** sur une vraie session
+- [x] Full dispersal prompt (`resources/prompt-dispersal.md`)
+- [x] Pilots talk among themselves, player joins whenever they want
+- [x] Natural topics defined (mission debated sideways, leave, food, death normalised)
+- [x] Anti-patterns listed (no heroic monologues, no second-person narration)
+- [x] Logging in `squadron/journal.md`
+- [ ] **To test** on a real session
 
-### 3.3 Évolution
-- [x] Relations qui changent selon les événements
-- [x] Moral escadron qui influe sur le ton
-- [x] Mémoire persistante via fiches pilotes
-- [ ] Rotation des pilotes (arrivées, départs) — à affiner avec les données PWCG
-
----
-
-## Phase 4 — Enrichissements (plus tard)
-
-- [ ] Mémorial enrichi avec biographies fictives des tombés
-- [ ] Fiches ennemis abattus (biographie cohérente, unité, parcours)
-- [ ] Newspaper clippings fictifs (communiqués, citations)
-- [ ] Interface web locale (Flask, localhost)
+### 3.3 Evolution
+- [x] Relationships changing according to events
+- [x] Squadron morale influencing tone
+- [x] Persistent memory via pilot sheets
+- [ ] Pilot rotation (arrivals, departures) — to refine with PWCG data
 
 ---
 
-## Prochaine étape
+## Phase 4 — Enhancements (later)
 
-1. Nicolas crée une campagne PWCG dédiée
-2. Remplir `.env` avec les vrais chemins
-3. Valider les parsers sur de vraies données
-4. Premier brief + debrief complet sur une mission réelle
+- [ ] Memorial enriched with fictional biographies of the fallen
+- [ ] Enemy pilot sheets for kills (coherent biography, unit, career)
+- [ ] Fictional newspaper clippings (communiqués, citations)
+- [ ] Local web interface (Flask, localhost)
+
+---
+
+## Next steps
+
+1. Nicolas creates a dedicated PWCG campaign
+2. Fill in `.env` with real paths
+3. Validate parsers on real data
+4. First full brief + debrief on a real mission

@@ -1,49 +1,49 @@
-# RAPPORT DE COMBAT
+# COMBAT REPORT
 
 ---
 
-**N° série :** {serial}
-**Date :** {date}
-**Unité :** {squadron}
-**Appareil (type et marque) :** {aircraft}
-**Heure de l'engagement :** {time}
-**Lieu / point de rendez-vous :** {location}
-**Altitude de l'ennemi :** {enemy_altitude} pieds
-**Pertes ennemies et description :** {enemy_type}
+**Serial No.:** {serial}
+**Date:** {date}
+**Unit:** {squadron}
+**Aircraft (Type and Mark):** {aircraft}
+**Time Attack was Delivered:** {time}
+**Place of Attack / Rendezvous:** {location}
+**Height of Enemy:** {enemy_altitude} feet
+**Enemy Casualties and Description:** {enemy_type}
 
 ---
 
-## A — Détail de la sortie
+## A — Detail of Sortie
 
-**Mission :** {duty}
-**Heure de décollage :** {time_up}
-**Heure d'atterrissage :** {time_down}
-**Base :** {base}
+**Mission:** {duty}
+**Time Up:** {time_up}
+**Time Down:** {time_down}
+**Base:** {base}
 
-## B — Récit
+## B — General Report
 
 {narrative}
 
-## C — Résultats
+## C — Results
 
-| Revendication | Type | Circonstances |
-|---------------|------|---------------|
+| Claim | Type | Circumstances |
+|-------|------|---------------|
 | {claim_status} | {enemy_type} | {circumstances} |
 
-## D — Munitions consommées
+## D — Ammunition Expended
 
 {ammo_notes}
 
-## E — Dégâts sur l'appareil
+## E — Damage to Own Aircraft
 
 {damage_notes}
 
 ## F — Personnel
 
-**Pilote :** {pilot_name} ({rank})
-**Section :** {section}
+**Pilot:** {pilot_name} ({rank})
+**Section:** {section}
 
 ---
 
-*Signature : ____________________*
-*Officier de renseignement : ____________________*
+*Signature: ____________________*
+*Intelligence Officer: ____________________*

@@ -1,23 +1,23 @@
 # Antonin Chevalier — Pilot Officer
 
-| Champ | Valeur |
+| Field | Value |
 |-------|--------|
-| **Rang** | Pilot Officer |
-| **Unité** | 326 Squadron RAF |
-| **Appareil** | Spitfire Mk.IXe |
-| **Niveau** | COMMON |
+| **Rank** | Pilot Officer |
+| **Unit** | 326 Squadron RAF |
+| **Aircraft** | Spitfire Mk.IXe |
+| **Level** | COMMON |
 | **Missions** | 8 |
-| **Victoires air** | 0 |
-| **Statut** | Crash-landing — statut en cours d'évaluation |
+| **Air victories** | 0 |
+| **Status** | Crash-landing — status under assessment |
 
-## Profil
+## Profile
 
-**Tempérament :** Peu connu — 9 sorties, peu de temps pour s'affirmer.
-**En combat :** Manque d'expérience. Touché dès le premier engagement sérieux contre une chasse ennemie organisée.
-**En société :** Pas encore caractérisé. Absent du dispersal du 2 novembre — en cours de récupération sur le terrain.
+**Temperament:** Little known — 9 sorties, not enough time to establish himself.
+**In combat:** Lacking experience. Hit on his first serious engagement against an organised enemy fighter formation.
+**Socially:** Not yet characterised. Absent from the dispersal on 2 November — recovering at the airfield.
 
-## État courant
+## Current status
 
-- **Statut :** Crash-landing confirmé, 2 novembre 1944 — secteur combat Brabant-Nord (~48m altitude). Cause : flak au sol (AID inconnu). Vivant à la localisation, équipes de récupération en route.
-- **Appareil :** Perdu.
-- **Mission 002 :** Touché par un Fw 190 A-8 (~13% dégâts), l'attaquant abattu par Falstaff. Chevalier a ensuite pris de la flak en vol rasant.
+- **Status:** Crash-landing confirmed, 2 November 1944 — combat sector Noord-Brabant (~48m altitude). Cause: ground flak (AID unknown). Alive at location, recovery teams en route.
+- **Aircraft:** Lost.
+- **Mission 002:** Hit by an Fw 190 A-8 (~13% damage), attacker shot down by Falstaff. Chevalier then took flak during low-level flight.

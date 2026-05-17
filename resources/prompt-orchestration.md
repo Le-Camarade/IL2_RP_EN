@@ -1,196 +1,196 @@
-# Orchestration — Flux de commandes
+# Orchestration — Command Flow
 
-## Commandes reconnues
+## Recognised Commands
 
-Le joueur tape un mot-clé dans Claude Code. Claude détecte l'intention et déclenche le workflow correspondant.
+The player types a keyword in Claude Code. Claude detects the intent and triggers the corresponding workflow.
 
-| Déclencheur | Workflow | Prompt IO |
-|-------------|----------|-----------|
-| `briefing`, `brief`, `avant la mission` | Briefing pré-mission | `prompt-io-briefing.md` |
-| `debrief`, `debriefing`, `je suis rentré`, `après la mission` | Debriefing post-mission | `prompt-io-debrief.md` |
-| `dispersal`, `entre les missions`, `au bar` | Dispersal hut (Phase 3) | À définir |
+| Trigger | Workflow | IO Prompt |
+|---------|----------|-----------|
+| `briefing`, `brief`, `avant la mission` | Pre-mission briefing | `prompt-io-briefing.md` |
+| `debrief`, `debriefing`, `je suis rentré`, `après la mission` | Post-mission debriefing | `prompt-io-debrief.md` |
+| `dispersal`, `entre les missions`, `au bar` | Dispersal hut (Phase 3) | To be defined |
 
-Tout autre message est traité normalement (question sur le projet, demande technique, etc.).
-
----
-
-## Workflow Briefing — pas à pas
-
-```
-JOUEUR: "briefing"
-    │
-    ▼
-CLAUDE (silencieux):
-    1. python scripts/post_mission.py fix-lang  (génère .fra/.ger/etc.)
-    2. Lire Campaign.json → extraire date (YYYYMMDD)
-    3. Lire MissionData/Nicky Falstaff II YYYY-MM-DD.MissionData.json
-       → Si absent : briefing contextuel + note "générer dans PWCG"
-    3. Lire squadron/tableau-de-bord.md
-    4. Lire les 3 dernières entrées de squadron/journal.md
-    5. Convertir toutes les unités SI → impérial (feet, mph)
-    │
-    ▼
-CLAUDE (hors personnage):
-    Sauvegarder missions/briefings/YYYY-MM-DD_briefing-NN.md
-    │
-    ▼
-CLAUDE (en personnage IO):
-    Affiche le briefing structuré (voir prompt-io-briefing.md)
-    Règle : pas de noms ni effectifs ennemis — unités + types uniquement
-    │
-    ▼
-JOUEUR: questions éventuelles
-    │
-    ▼
-CLAUDE (IO): répond en personnage
-    │
-    ▼
-JOUEUR: "je vais voler" / "c'est bon" / "go"
-    │
-    ▼
-CLAUDE (IO): "Compris. On se retrouve au debrief."
-    Fin du workflow briefing.
-```
+Any other message is handled normally (question about the project, technical request, etc.).
 
 ---
 
-## Workflow Debriefing — pas à pas
+## Briefing Workflow — Step by Step
 
 ```
-JOUEUR: "debrief"
+PLAYER: "briefing"
     │
     ▼
-CLAUDE (silencieux):
+CLAUDE (silent):
+    1. python scripts/post_mission.py fix-lang  (generates .fra/.ger/etc.)
+    2. Read Campaign.json → extract date (YYYYMMDD)
+    3. Read MissionData/Nicky Falstaff II YYYY-MM-DD.MissionData.json
+       → If absent: contextual briefing + note "generate in PWCG"
+    3. Read squadron/tableau-de-bord.md
+    4. Read last 3 entries of squadron/journal.md
+    5. Convert all SI units → imperial (feet, mph)
+    │
+    ▼
+CLAUDE (out of character):
+    Save missions/briefings/YYYY-MM-DD_briefing-NN.md
+    │
+    ▼
+CLAUDE (in character as IO):
+    Display structured briefing (see prompt-io-briefing.md)
+    Rule: no enemy names or strength figures — units + types only
+    │
+    ▼
+PLAYER: any questions
+    │
+    ▼
+CLAUDE (IO): responds in character
+    │
+    ▼
+PLAYER: "je vais voler" / "c'est bon" / "go"
+    │
+    ▼
+CLAUDE (IO): "Understood. See you at the debrief."
+    End of briefing workflow.
+```
+
+---
+
+## Debriefing Workflow — Step by Step
+
+```
+PLAYER: "debrief"
+    │
+    ▼
+CLAUDE (silent):
     1. python scripts/parse_mission_report.py
-       → Si aucun missionReport trouvé : "Pas de logs de mission.
-         Tu as bien activé mission_text_log dans startup.cfg ?"
-       → Identifier les logs les plus récents (par timestamp dans le nom)
+       → If no missionReport found: "No mission logs found.
+         Have you enabled mission_text_log in startup.cfg?"
+       → Identify the most recent logs (by timestamp in filename)
     2. python scripts/parse_pwcg.py
-    3. Lire squadron/tableau-de-bord.md
-    4. Stocker le résumé en mémoire de travail (pas affiché)
+    3. Read squadron/tableau-de-bord.md
+    4. Store summary in working memory (not displayed)
     │
     ▼
-CLAUDE (en personnage IO):
-    Commence la Phase 1 de l'interrogatoire.
-    UNE question à la fois.
+CLAUDE (in character as IO):
+    Begins Phase 1 of the debrief.
+    ONE question at a time.
     │
     ▼
     ┌─────────────────────────────┐
-    │  Boucle interrogatoire      │
+    │  Debrief loop               │
     │  Phase 1 → 2 → 3 → 4 → 5  │
     │  → 6                        │
-    │  Adapter selon les réponses │
-    │  Sauter si déjà couvert     │
+    │  Adapt to answers given     │
+    │  Skip if already covered    │
     └─────────────────────────────┘
     │
     ▼
 CLAUDE (IO):
-    Annonce les résultats confirmés.
-    "Je rédige le rapport."
+    Announces confirmed results.
+    "I'll write up the report."
     │
     ▼
-CLAUDE (hors personnage):
-    Génère les fichiers :
+CLAUDE (out of character):
+    Generates files:
     1. missions/YYYY-MM-DD_mission-NN.md  (combat report)
-    2. Mise à jour personnel/             (fiches pilotes)
-    3. Mise à jour squadron/journal.md    (entrée courte)
-    4. Mise à jour squadron/tableau-de-bord.md
-    5. Mise à jour squadron/memorial.md   (si tombés)
+    2. Update personnel/             (pilot files)
+    3. Update squadron/journal.md    (short entry)
+    4. Update squadron/tableau-de-bord.md
+    5. Update squadron/memorial.md   (if casualties)
     │
     ▼
-CLAUDE: "Rapport classé. Tu veux passer au dispersal ?"
+CLAUDE: "Report filed. Shall we head to the dispersal?"
 ```
 
 ---
 
-## Sélection des logs récents
+## Selecting Recent Logs
 
-Les `missionReport*.txt` s'accumulent dans `IL2_DATA_DIR`. Pour trouver les bons :
+`missionReport*.txt` files accumulate in `IL2_DATA_DIR`. To find the right ones:
 
-1. Lister tous les `missionReport(*)*.txt`
-2. Extraire le timestamp du nom : `missionReport(YYYY-MM-DD_HH-MM-SS)[N].txt`
-3. Grouper par timestamp (tous les `[N]` d'une même session)
-4. Prendre le groupe le **plus récent**
-5. Si plusieurs groupes du même jour : demander au joueur lequel
-
----
-
-## Numérotation des missions
-
-Le numéro `NN` dans `missions/YYYY-MM-DD_mission-NN.md` est séquentiel :
-- Compter les fichiers existants dans `missions/` (hors dossier `briefings/`)
-- Incrémenter de 1
-- Format : deux chiffres, zéro-padded (`01`, `02`, ... `99`)
-
-Le briefing associé utilise le **même numéro** : `missions/briefings/YYYY-MM-DD_briefing-NN.md`
+1. List all `missionReport(*)*.txt`
+2. Extract the timestamp from the filename: `missionReport(YYYY-MM-DD_HH-MM-SS)[N].txt`
+3. Group by timestamp (all `[N]` files from the same session)
+4. Take the **most recent** group
+5. If multiple groups from the same day: ask the player which one
 
 ---
 
-## Workflow Dispersal — pas à pas
+## Mission Numbering
+
+The `NN` in `missions/YYYY-MM-DD_mission-NN.md` is sequential:
+- Count existing files in `missions/` (excluding the `briefings/` subfolder)
+- Increment by 1
+- Format: two digits, zero-padded (`01`, `02`, ... `99`)
+
+The associated briefing uses the **same number**: `missions/briefings/YYYY-MM-DD_briefing-NN.md`
+
+---
+
+## Dispersal Workflow — Step by Step
 
 ```
-JOUEUR: "dispersal"
+PLAYER: "dispersal"
     │
     ▼
-CLAUDE (silencieux):
-    1. Lire squadron/tableau-de-bord.md
-    2. Lire les 3-5 dernières entrées de squadron/journal.md
-    3. Lire personnel/allies/*.md (fiches pilotes vivants)
-    4. Lire le dernier missions/*.md
-    5. Choisir 2-4 pilotes présents (cohérent avec contexte)
+CLAUDE (silent):
+    1. Read squadron/tableau-de-bord.md
+    2. Read last 3–5 entries of squadron/journal.md
+    3. Read personnel/allies/*.md (living pilot files)
+    4. Read the latest missions/*.md
+    5. Select 2–4 pilots present (consistent with context)
     │
     ▼
-CLAUDE (en personnage — narrateur + pilotes):
-    Plante le décor en 2-3 phrases.
-    Un pilote lance un échange (ou silence).
+CLAUDE (in character — narrator + pilots):
+    Sets the scene in 2–3 sentences.
+    A pilot opens a conversation (or silence).
     │
     ▼
     ┌──────────────────────────────────────┐
-    │  Boucle libre                        │
-    │  Le joueur parle → pilotes réagissent│
-    │  Pilotes parlent entre eux           │
-    │  Joueur intervient ou observe        │
-    │  Pas de durée imposée               │
+    │  Free-running loop                   │
+    │  Player speaks → pilots react        │
+    │  Pilots talk among themselves        │
+    │  Player steps in or observes         │
+    │  No imposed duration                 │
     └──────────────────────────────────────┘
     │
     ▼
-JOUEUR: "je vais me coucher" / "j'y vais" / coupe la session
+PLAYER: "je vais me coucher" / "j'y vais" / ends the session
     │
     ▼
-CLAUDE (hors personnage):
-    1. Entrée dans squadron/journal.md (ambiance, 3-5 lignes)
-    2. Mise à jour personnel/allies/*.md si évolution notable
-    "Session dispersal enregistrée."
+CLAUDE (out of character):
+    1. Entry in squadron/journal.md (atmosphere, 3–5 lines)
+    2. Update personnel/allies/*.md if notable change
+    "Dispersal session logged."
 ```
 
-**Première session dispersal d'une campagne** : si les fichiers `personnel/allies/*.md` n'existent pas encore, Claude les génère d'abord à partir des données PWCG (parse_pwcg.py), puis lance le dispersal normalement.
+**First dispersal session of a campaign**: if `personnel/allies/*.md` files do not yet exist, Claude generates them first from the PWCG data (parse_pwcg.py), then launches the dispersal normally.
 
 ---
 
-## Transition entre workflows
+## Transitions Between Workflows
 
-Le joueur peut enchaîner :
+The player may chain them:
 ```
-briefing → vole la mission → debrief → dispersal
-```
-
-Ou revenir plus tard :
-```
-debrief    (seul, après avoir volé)
-dispersal  (seul, quand il veut)
+briefing → fly the mission → debrief → dispersal
 ```
 
-Chaque workflow est autonome — il lit l'état courant des fichiers, pas un état en mémoire de la session précédente. Ça permet de reprendre après un redémarrage de Claude Code.
+Or return later:
+```
+debrief    (on its own, after flying)
+dispersal  (on its own, whenever)
+```
+
+Each workflow is self-contained — it reads the current state of the files, not an in-memory state from the previous session. This allows resuming after a Claude Code restart.
 
 ---
 
-## Gestion d'erreurs
+## Error Handling
 
-| Problème | Réaction |
-|----------|----------|
-| `.env` vide ou chemins invalides | "Les chemins dans .env ne sont pas configurés. Vérifie IL2_DATA_DIR et PWCG_CAMPAIGN_DIR." |
-| Pas de missionReport récent | "Pas de logs de mission trouvés. Tu as bien mission_text_log = 1 dans startup.cfg ?" |
-| PWCG Campaign.json absent | "Je ne trouve pas de campagne PWCG au chemin configuré. Vérifie PWCG_CAMPAIGN_DIR dans .env." |
-| MissionData absent | Briefing contextuel (historique + escadron) + "Génère la mission dans PWCG pour les objectifs précis." |
-| Personnel vide | "Pas de données pilotes. La campagne PWCG est bien initialisée ?" |
-| Logs d'une ancienne mission | "Les derniers logs datent de [date]. C'est bien cette mission ?" |
+| Problem | Response |
+|---------|----------|
+| `.env` empty or invalid paths | "The paths in .env are not configured. Check IL2_DATA_DIR and PWCG_CAMPAIGN_DIR." |
+| No recent missionReport | "No mission logs found. Do you have mission_text_log = 1 in startup.cfg?" |
+| PWCG Campaign.json missing | "Cannot find a PWCG campaign at the configured path. Check PWCG_CAMPAIGN_DIR in .env." |
+| MissionData missing | Contextual briefing (historical + squadron context) + "Generate the mission in PWCG for precise objectives." |
+| Personnel empty | "No pilot data found. Has the PWCG campaign been properly initialised?" |
+| Logs from an old mission | "The latest logs are dated [date]. Is that the mission you want?" |

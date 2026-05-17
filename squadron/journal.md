@@ -1,57 +1,57 @@
-# Journal du Dispersal Hut
+# Dispersal Hut Journal
 
-*Entrées chronologiques — vie de l'escadron entre les missions.*
+*Chronological entries — squadron life between missions.*
 
 ---
 
-## 1 novembre 1944
+## 1 November 1944
 
-Première sortie de la campagne pour Falstaff. Contact patrol sur le secteur Gorinchem, par un temps à ne pas mettre un chien dehors — pluie continue, brouillard de terrain, nuages à 3 700 pieds. L'escorte américaine (352nd FG, P-51) a disparu dans la crasse dès le départ et ne s'est montrée que par intermittence.
+First sortie of the campaign for Falstaff. Contact patrol over the Gorinchem sector, in weather you wouldn't send a dog out in — steady rain, ground fog, cloud base at 3,700 feet. The American escort (352nd FG, P-51) disappeared into the muck from the start and only showed itself intermittently.
 
-Falstaff a ramené ce qu'il pouvait : un incendie important sur le port de Gorinchem, des concentrations de flak à 's-Hertogenbosch et sur l'objectif. Les positions amies au sol — impossible à établir, tout le monde à l'abri. Il a pris des éclats au-dessus de Gorinchem. L'appareil est chez les mécaniciens.
+Falstaff brought back what he could: a large fire in Gorinchem harbour, heavy flak concentrations at 's-Hertogenbosch and over the objective. Friendly ground positions — impossible to establish, everyone under cover. He took splinters over Gorinchem. The aircraft is with the mechanics.
 
-Deux P-51 américains manquent à l'appel. On attend des nouvelles du côté de la 352nd.
+Two American P-51s are missing. Awaiting word from the 352nd's side.
 
-Première sortie. Rien de cassé du côté du 326, mais la météo de novembre annonce la couleur.
+First sortie. Nothing broken on 326's end, but November's weather is making its intentions plain.
 
-## 1 novembre 1944 — Dispersal — première soirée
+## 1 November 1944 — Dispersal — first evening
 
-Falstaff, Morliere, Dusaussoy. Une bouteille de bordeaux dont personne n'a contrôlé l'étiquette. La pluie sur le toit en tôle.
+Falstaff, Morliere, Dusaussoy. A bottle of Bordeaux nobody checked the label on. Rain on the corrugated iron roof.
 
-Falstaff a parlé de Preddy, des deux P-51 manquants, de la flak à Gorinchem. Sans affect particulier — il prenait la température, au dispersal comme en vol. Dusaussoy a écouté plus qu'il n'a parlé, ce qui est sa façon d'évaluer quelqu'un. Morliere a fait ce qu'il fait : mis de l'huile là où ça risquait de grincer.
+Falstaff talked about Preddy, the two missing P-51s, the flak at Gorinchem. Without particular affect — he was taking the temperature, at the dispersal just as he does in the air. Dusaussoy listened more than he spoke, which is his way of sizing someone up. Morliere did what he does: poured oil where things might have seized.
 
-Falstaff a demandé des Spitfire XIV. Dusaussoy lui a expliqué pourquoi le problème n'était pas l'appareil. Ça s'est dit sans friction.
+Falstaff asked about Spitfire XIVs. Dusaussoy explained why the problem wasn't the aircraft. Said without friction.
 
-Premiers mots de Dusaussoy en partant : "Bienvenue au 326." Pour lui, c'est déjà beaucoup.
+Dusaussoy's parting words: "Welcome to 326." From him, that is already a great deal.
 
-Présents : Falstaff, Morliere, Dusaussoy
+Present: Falstaff, Morliere, Dusaussoy
 
-## 2 novembre 1944
+## 2 November 1944
 
-Ground Hunt. Objectif : les routes du Brabant-Nord. Résultat : quatre Focke-Wulf au tapis, deux Spitfire perdus.
+Ground Hunt. Objective: the roads of Noord-Brabant. Result: four Focke-Wulfs in pieces, two Spitfires lost.
 
-Dusaussoy n'a pas rompu au premier appel radio. Il a pris des balles avant que Falstaff revienne sur l'avion qui le tirait. Falstaff l'a vengé proprement — l'attaquant en morceaux. Ça n'a pas empêché Dusaussoy de se faire abattre par la flak en revenant au ras des herbes. Blessé grave. Indisponible.
+Dusaussoy didn't break on the first radio call. He took bullets before Falstaff came back round onto the aircraft that was shooting him up. Falstaff avenged him cleanly — the attacker in fragments. It didn't stop Dusaussoy from being brought down by flak on the way back at hedge-hopping height. Seriously wounded. Unavailable.
 
-Chevalier aussi — même histoire, même fin. Crash-landing, équipes en route. 8 sorties au compteur. Pas eu le temps de devenir quelqu'un.
+Chevalier too — same story, same end. Crash-landing, recovery teams en route. 8 sorties on the clock. Didn't get the time to become someone.
 
-Falstaff et Vitry sont rentrés. La schwarm était complète — quatre appareils, formation serrée, le soleil dans le dos. Falstaff les a tous eus. Le dernier en barrel roll.
+Falstaff and Vitry got back. The schwarm was complete — four aircraft, tight formation, sun at their backs. Falstaff got all of them. The last one in a barrel roll.
 
-L'escorte américaine — le 373rd — n'était pas là. Elle est arrivée pour le trajet retour, quand il ne restait plus rien à faire. On attend des explications.
+The American escort — the 373rd — wasn't there. It arrived for the return leg, when there was nothing left to be done. Explanations are awaited.
 
-L'escadron a perdu deux pilotes en une sortie. C'est le prix d'une victoire claire sur une formation complète. Ça ne rend pas les lits vides moins vides.
+The squadron lost two pilots in one sortie. That is the cost of a clean victory over a complete formation. It doesn't make the empty beds any less empty.
 
-## 2 novembre 1944 — Dispersal — après la tempête
+## 2 November 1944 — Dispersal — after the storm
 
-Falstaff a réglé ses comptes d'abord. Vitry dans le coin, dos au mur — il avait serré la formation quand il aurait fallu rompre. Falstaff lui a dit en face, sans élever la voix. Puis : *"Demain tu voleras avec moi."* Pas de punition. Une correction.
+Falstaff settled accounts first. Vitry in the corner, back to the wall — he had tightened the formation when he should have broken. Falstaff told him straight, without raising his voice. Then: *"Tomorrow you fly with me."* Not a punishment. A correction.
 
-Dusaussoy et Chevalier — on a parlé d'envoyer leurs affaires, de prévenir les familles. Falstaff l'a dit sans qu'on le lui demande. Morliere s'en occupe.
+Dusaussoy and Chevalier — there was talk of sending their things on, informing the families. Falstaff said it without being asked. Morliere is handling it.
 
-Puis Falstaff s'est levé et a envoyé Vitry chercher de la bière belge. Le gamin est revenu avec deux caisses et la moitié de l'escadron dans le couloir.
+Then Falstaff got up and sent Vitry to fetch Belgian beer. The lad came back with two crates and half the squadron in the corridor.
 
-Le piano de Morliere — toujours aussi faux, toujours aussi généreux. Des chants. Martinez qui renverse un verre. Laffargue endormi sur sa chaise, réveillé, reparti. Vitry qui essaie de suivre les paroles anglaises en regardant ses collègues du coin de l'œil, comme quelqu'un qui commence à comprendre où il est.
+Morliere's piano — always as out of tune, always as generous. Songs. Martinez knocking over a glass. Laffargue asleep in his chair, woken up, off again. Vitry trying to follow the English lyrics while watching his colleagues out of the corner of his eye, like someone beginning to understand where he is.
 
-Tard dans la nuit, Falstaff a regardé le dernier partir se coucher.
+Late into the night, Falstaff watched the last one head off to bed.
 
-Morliere, en sortant : *"Bienvenue au 326, patron. Le vrai cette fois."*
+Morliere, on the way out: *"Welcome to 326, patron. The real one this time."*
 
-Présents : Falstaff, Morliere, Vitry, Laffargue, Martinez — et les autres par intermittence.
+Present: Falstaff, Morliere, Vitry, Laffargue, Martinez — and the others in and out.

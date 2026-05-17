@@ -1,31 +1,31 @@
 # Marcel Morliere — Flight Lieutenant
 
-| Champ | Valeur |
+| Field | Value |
 |-------|--------|
-| **Rang** | Flight Lieutenant |
-| **Unité** | 326 Squadron RAF |
-| **Appareil** | Spitfire Mk.IXe |
-| **Niveau** | VETERAN |
+| **Rank** | Flight Lieutenant |
+| **Unit** | 326 Squadron RAF |
+| **Aircraft** | Spitfire Mk.IXe |
+| **Level** | VETERAN |
 | **Missions** | 25 |
-| **Victoires air** | 5 |
-| **Statut** | Actif |
+| **Air victories** | 5 |
+| **Status** | Active |
 
-## Profil
+## Profile
 
-**Tempérament :** Jovial en surface, solide en dessous. Le genre à faire une blague dans les moments tendus — pas pour esquiver, pour décompresser.
-**En combat :** Agressif, instinctif. 5 kills en 25 sorties — il cherche le contact.
-**En société :** Sociable, blagueur, mais pas superficiel. Il écoute autant qu'il parle.
+**Temperament:** Jovial on the surface, solid underneath. The kind who cracks a joke in tense moments — not to dodge, but to decompress.
+**In combat:** Aggressive, instinctive. 5 kills in 25 sorties — he goes looking for trouble.
+**Socially:** Sociable, a joker, but not shallow. He listens as much as he talks.
 
 ## Backstory
 
-Bretagne d'origine. A rejoint les FFL via l'Espagne en 43. A un peu de tout derrière lui — côte atlantique, V-1 sur l'Angleterre, maintenant le front terrestre en Hollande. Il a un frère quelque part en France dont il est sans nouvelles depuis la Libération. N'en parle pas, mais y pense.
+From Brittany originally. Joined the FFL via Spain in '43. Has a bit of everything behind him — Atlantic coast, V-1s over England, now the ground war in Holland. He has a brother somewhere in France he has had no news of since the Liberation. Doesn't talk about it, but thinks about it.
 
-## Relation avec Falstaff
+## Relation with Falstaff
 
-**Amical / positif.** Falstaff a répondu à toutes ses questions sans le savoir : ferme avec Vitry, attentif aux hommes tombés, capable de pivoter vers la vie quand le moment le demandait. "Bienvenue au 326, patron. Le vrai cette fois." — dit en levant son verre, tard dans la nuit du 2 novembre. C'était sincère.
+**Friendly / positive.** Falstaff answered all his questions without knowing it: firm with Vitry, attentive to the men who went down, able to pivot towards life when the moment called for it. "Welcome to 326, patron. The real one this time." — said while raising his glass, late on the night of 2 November. It was sincere.
 
-## État courant
+## Current status
 
-- **Moral :** Bon
-- **Fatigue :** Frais (n'a pas volé aujourd'hui)
-- **Dernière mission :** Pas en vol le 1er novembre
+- **Morale:** Good
+- **Fatigue:** Fresh (did not fly today)
+- **Last mission:** Not flying on 1 November

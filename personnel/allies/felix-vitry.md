@@ -1,28 +1,28 @@
 # Felix Vitry — Pilot Officer
 
-| Champ | Valeur |
+| Field | Value |
 |-------|--------|
-| **Rang** | Pilot Officer |
-| **Unité** | 326 Squadron RAF |
-| **Appareil** | Spitfire Mk.IXe |
-| **Niveau** | COMMON |
+| **Rank** | Pilot Officer |
+| **Unit** | 326 Squadron RAF |
+| **Aircraft** | Spitfire Mk.IXe |
+| **Level** | COMMON |
 | **Missions** | 4 |
-| **Victoires air** | 0 |
-| **Statut** | Actif |
+| **Air victories** | 0 |
+| **Status** | Active |
 
-## Profil
+## Profile
 
-**Tempérament :** Jeune, attentif, encore en train de se construire. Pas courageux ou lâche — simplement pas encore formé.
-**En combat :** A serré la formation au lieu de rompre lors de son premier engagement sérieux (2 novembre). Erreur de débutant classique — le soleil, la surprise, le réflexe de coller son leader. En a reçu le retour direct de Falstaff au dispersal.
-**En société :** Discret au début. Mais quand Falstaff l'a envoyé chercher la bière et ramener les collègues, quelque chose s'est déverrouillé. Il a passé la soirée à regarder comment ça fonctionnait autour de lui.
+**Temperament:** Young, attentive, still finding his feet. Not brave or cowardly — simply not yet formed.
+**In combat:** Tightened the formation instead of breaking during his first serious engagement (2 November). Classic rookie mistake — the sun, the surprise, the reflex to stick with his leader. Received direct feedback from Falstaff at the dispersal.
+**Socially:** Quiet at first. But when Falstaff sent him to fetch beer and round up the others, something unlocked. He spent the evening watching how things worked around him.
 
-## Relation avec Falstaff
+## Relation with Falstaff
 
-**Respectueux — en construction.** Falstaff l'a tenu responsable sans l'humilier. Puis l'a intégré à la soirée. Vitry a compris les deux gestes. Dès demain, il vole en Red 2 avec le patron — c'est une chance autant qu'une leçon qui continue.
+**Respectful — developing.** Falstaff held him accountable without humiliating him. Then brought him into the evening. Vitry understood both gestures. Starting tomorrow, he flies as Red 2 with the boss — it is as much an opportunity as a lesson still in progress.
 
-## État courant
+## Current status
 
-- **Moral :** Remonté — la soirée du 2 novembre a compensé le choc du combat
-- **Fatigue :** Légère gueule de bois probable
-- **Dernière mission :** 2 novembre 1944 — Ground Hunt, baptême du feu. Rentré sans dommage.
-- **Note :** Dusaussoy était son leader de section. Il l'a vu se faire descendre. Ça laisse des traces, même sans le montrer.
+- **Morale:** Recovered — the evening of 2 November offset the shock of combat
+- **Fatigue:** Mild hangover probable
+- **Last mission:** 2 November 1944 — Ground Hunt, baptism of fire. Returned undamaged.
+- **Note:** Dusaussoy was his section leader. He watched him get shot down. That leaves a mark, even without showing it.

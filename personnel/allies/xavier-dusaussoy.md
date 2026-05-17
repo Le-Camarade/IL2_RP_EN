@@ -1,31 +1,31 @@
 # Xavier Dusaussoy — Flight Lieutenant
 
-| Champ | Valeur |
+| Field | Value |
 |-------|--------|
-| **Rang** | Flight Lieutenant |
-| **Unité** | 326 Squadron RAF |
-| **Appareil** | Spitfire Mk.IXe |
-| **Niveau** | VETERAN |
+| **Rank** | Flight Lieutenant |
+| **Unit** | 326 Squadron RAF |
+| **Aircraft** | Spitfire Mk.IXe |
+| **Level** | VETERAN |
 | **Missions** | 49 |
-| **Victoires air** | 4 |
-| **Statut** | Blessé grave — indisponible |
+| **Air victories** | 4 |
+| **Status** | Seriously wounded — unavailable |
 
-## Profil
+## Profile
 
-**Tempérament :** Flegmatique, observateur, économe en paroles. Pas froid — il chauffe lentement.
-**En combat :** Méthodique, patient. Il attend le bon angle. 49 missions sans une égratignure sérieuse.
-**En société :** Réservé, légèrement ironique. Jamais le premier à parler. Mais quand il dit quelque chose, ça compte.
+**Temperament:** Phlegmatic, observant, economical with words. Not cold — he warms up slowly.
+**In combat:** Methodical, patient. He waits for the right angle. 49 missions without a serious scratch.
+**Socially:** Reserved, slightly ironic. Never the first to speak. But when he says something, it counts.
 
 ## Backstory
 
-Rallié en 42 depuis l'Afrique du Nord. A volé en Normandie avec le 326, puis suivi le front jusqu'en Hollande. C'est lui qui a le plus d'heures sur Spitfire dans l'escadron. Ne le dit jamais — mais le sait. Attendait probablement d'être promu S/L. L'arrivée de Falstaff n'a rien changé dans son comportement visible. Ce que ça a changé en dedans, difficile à dire.
+Rallied in '42 from North Africa. Flew in Normandy with 326, then followed the front into Holland. He has more hours on Spitfire than anyone else in the squadron. Never mentions it — but knows it. He was probably expecting to be promoted to S/L. Falstaff's arrival changed nothing in his visible behaviour. What it changed inside him is harder to say.
 
-## Relation avec Falstaff
+## Relation with Falstaff
 
-**Méfiant / neutre — légèrement positif.** Première soirée au dispersal : Falstaff a été direct, sans prétention, a reconnu que la sortie était une prise de température. Dusaussoy a noté. Rien de décidé, mais la porte n'est pas fermée. "Bienvenue au 326" en partant — pour lui, c'est déjà un signal.
+**Wary / neutral — slightly positive.** First evening at the dispersal: Falstaff was direct, without pretension, acknowledged the sortie was a shakedown. Dusaussoy noted it. Nothing settled, but the door is not closed. "Welcome to 326" on leaving — from him, that is already a signal.
 
-## État courant
+## Current status
 
-- **Statut :** Blessé grave — indisponible pour une durée indéterminée (notification officielle PWCG, 2 novembre 1944)
-- **Circonstances :** Touché par un Fw 190 A-8 au-dessus du Brabant (~15% dégâts initiaux), puis détruit par flak au ras du sol. Crash-landing confirmé, ~50 km à l'ouest de Volkel.
-- **Note :** Falstaff a abattu l'Fw 190 qui l'attaquait. Dusaussoy n'avait pas rompu sur l'appel radio — ce qui a conduit à la mise hors de combat.
+- **Status:** Seriously wounded — unavailable for an indefinite period (official PWCG notification, 2 November 1944)
+- **Circumstances:** Hit by an Fw 190 A-8 over Brabant (~15% initial damage), then destroyed by ground flak at low level. Crash-landing confirmed, ~50 km west of Volkel.
+- **Note:** Falstaff shot down the Fw 190 that was attacking him. Dusaussoy had not broken on the radio call — which led to him being put out of action.

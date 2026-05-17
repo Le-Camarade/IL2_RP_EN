@@ -1,71 +1,71 @@
 # IL-2 Career Narrator
 
-Couche narrative pour le mode carriere IL-2 Sturmovik, pilotee par **PWCG** (Pat Wilson's Campaign Generator) et **Claude Code**.
+Narrative layer for IL-2 Sturmovik career mode, driven by **PWCG** (Pat Wilson's Campaign Generator) and **Claude Code**.
 
-Chaque mission devient une experience : briefing par l'officier de renseignement, debriefing interactif, vie d'escadron au dispersal hut. Les donnees brutes du jeu et de PWCG alimentent une base Markdown persistante -- combat reports, fiches pilotes, journal d'escadron, memorial.
+Each mission becomes an experience: briefing by the intelligence officer, interactive debriefing, squadron life at the dispersal hut. Raw data from the game and PWCG feeds a persistent Markdown base — combat reports, pilot sheets, squadron journal, memorial.
 
-## Fonctionnalites
+## Features
 
-| Module | Description | Statut |
+| Module | Description | Status |
 |--------|-------------|--------|
-| **Brief** | Briefing immersif genere depuis les donnees PWCG avant la mission | En cours |
-| **Debrief** | Debriefing interactif post-mission, croise avec les logs IL-2 | En cours |
-| **Dispersal** | Roleplay avec les pilotes de l'escadron entre les missions | Planifie |
+| **Brief** | Immersive briefing generated from PWCG data before the mission | In progress |
+| **Debrief** | Interactive post-mission debriefing, cross-referenced with IL-2 logs | In progress |
+| **Dispersal** | Roleplay with squadron pilots between missions | Planned |
 
 ## Setup
 
-### Prerequis
+### Prerequisites
 
-- **IL-2 Great Battles** avec `mission_text_log = 1` dans `startup.cfg`
-- **PWCG** installe avec une campagne active
+- **IL-2 Great Battles** with `mission_text_log = 1` in `startup.cfg`
+- **PWCG** installed with an active campaign
 - **Python 3.10+**
 - **Claude Code**
 
 ### Configuration
 
-Copier `.env` et remplir les chemins :
+Copy `.env` and fill in the paths:
 
 ```env
-# Dossier data/ d'IL-2 (contient les missionReport*.txt)
+# IL-2 data/ folder (contains missionReport*.txt)
 IL2_DATA_DIR=C:\Program Files\IL-2 Sturmovik Great Battles\data
 
-# Dossier de la campagne PWCG active
+# Active PWCG campaign folder
 PWCG_CAMPAIGN_DIR=C:\...\PWCGBoS\User\Campaigns\MaCampagne
 ```
 
-### Utilisation
+### Usage
 
-Depuis le dossier du projet, ouvrir Claude Code :
+From the project folder, open Claude Code:
 
 ```bash
 claude
 ```
 
-Puis :
-- **Avant la mission** : *"Lance le briefing"*
-- **Apres la mission** : *"Lance le debriefing"*
-- **Entre les missions** : *"Dispersal"*
+Then:
+- **Before the mission**: *"Launch the briefing"*
+- **After the mission**: *"Launch the debriefing"*
+- **Between missions**: *"Dispersal"*
 
 ## Structure
 
 ```
 IL2-Career-RP/
-├── missions/           # Combat reports (un par sortie)
-├── personnel/          # Fiches pilotes (joueur, allies, ennemis)
-├── squadron/           # Journal, tableau de bord, memorial
-├── scripts/            # Parsers Python (logs IL-2, JSON PWCG)
-├── resources/          # Templates (formulaire RAF)
-├── CLAUDE.md           # Instructions Claude Code
-├── ROADMAP.md          # Etat d'avancement
-└── .env                # Chemins IL-2 et PWCG
+├── missions/           # Combat reports (one per sortie)
+├── personnel/          # Pilot sheets (player, allies, enemies)
+├── squadron/           # Journal, dashboard, memorial
+├── scripts/            # Python parsers (IL-2 logs, PWCG JSON)
+├── resources/          # Templates (RAF form)
+├── CLAUDE.md           # Claude Code instructions
+├── ROADMAP.md          # Progress status
+└── .env                # IL-2 and PWCG paths
 ```
 
 ## Stack
 
-- **Claude Code** : narration, debriefing interactif, roleplay
-- **Python** : parsing des logs missionReport et des JSON PWCG
-- **Markdown** : stockage de toute la narration (lisible dans Obsidian, VS Code, ou n'importe quoi)
+- **Claude Code**: narration, interactive debriefing, roleplay
+- **Python**: parsing of missionReport logs and PWCG JSON files
+- **Markdown**: storage for all narration (readable in Obsidian, VS Code, or anything)
 
-## Ton
+## Tone
 
-Sobre et militaire. Clostermann, pas Hollywood. Les pilotes ennemis sont traites avec le meme respect que les allies -- le memorial ne fait pas de distinction de camp.
+Sober and military. Clostermann, not Hollywood. Enemy pilots are treated with the same respect as allies — the memorial makes no distinction between sides.
